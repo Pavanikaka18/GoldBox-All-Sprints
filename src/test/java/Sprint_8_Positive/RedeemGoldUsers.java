@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
@@ -65,15 +66,14 @@ public class RedeemGoldUsers extends FMS_BaseClass {
 		RGUPage.getViewBtn().click();
 		Thread.sleep(2000);
 		driver.navigate().back();
-		RGUPage.getReedemGoldBtn().click();
-		Thread.sleep(2000);
+		Thread.sleep(2000); 
+		
+	    RGUPage.getReedemGoldBtn().click();
+	    Thread.sleep(2000);
 	    Redeem_RedeemGold_RedeemGoldButtonPage RGRGBPage = new Redeem_RedeemGold_RedeemGoldButtonPage(driver);
 	    RGRGBPage.getCloseBtn().click();
-	    Thread.sleep(2000);
-	   	    
-	    RGUPage.getShowAllCheckBox().click();
-	    Thread.sleep(4000);
-	    
+        Thread.sleep(2000);
+
 	    wUtility = new WebDriverUtility();
 		wUtility.scrollPageUp(3);
 
@@ -81,34 +81,33 @@ public class RedeemGoldUsers extends FMS_BaseClass {
 	    RGUPage.getFilterBtn().click();
 	    Thread.sleep(2000);
 	    Redeem_ReddemGoldusers_FilterPage RGUFPage = new Redeem_ReddemGoldusers_FilterPage(driver);
-	    Thread.sleep(3000);
-//	    RGUFPage.getFromDateEdt().sendKeys(FromDate);
-//	    Thread.sleep(3000);
-//	    RGUFPage.getEndDateEdt().sendKeys(EndDate);
-//	    Thread.sleep(5000);
-//	    RGUFPage.getMobileNumberEdt().sendKeys(MobileNumber);
-//	    Thread.sleep(5000);
-//	    RGUFPage.getTransactionIdEdt().sendKeys(TransactionId);
-//	    Thread.sleep(3000);
-	    
-	    RGUFPage.getTxnTypeDrpdwn().sendKeys(TxnType);
-	    Thread.sleep(3000);
-	    RGUFPage.getSearchEdt().click();
-	    Thread.sleep(3000);
-	    RGUFPage.getRefreshBtn().click();
-	    Thread.sleep(3000);
-
-	    
+        Thread.sleep(3000); 
+        RGUFPage.getTxnTypeDrpdwn().click();
+        driver.findElement(By.xpath("(//span[.='Redeemed'])[1]")).click();
+        Thread.sleep(3000);        
 	    driver.navigate().refresh();
-	    
+	     
+		Thread.sleep(4000);
+	    RGUPage.getFilterBtn().click();
+        Thread.sleep(3000); 
+        RGUFPage.getTxnTypeDrpdwn().click();
+        driver.findElement(By.xpath("(//span[.='Redeem'])[2]")).click();
+        Thread.sleep(3000);        
+	    driver.navigate().refresh();
+	     
+	    wUtility = new WebDriverUtility();
+		wUtility.scrollPageDown(3);
+
 	    Thread.sleep(3000);
 	    RGUPage.getNextBtn().click();
 	    Thread.sleep(3000);
 	    RGUPage.getPrevBtn().click();
 	    Thread.sleep(3000);
+	    
+	    driver.navigate().refresh();
 
-		
-		
+	    wUtility = new WebDriverUtility();
+		wUtility.scrollPageUp(3);
 		
 	}
 
@@ -125,3 +124,29 @@ public class RedeemGoldUsers extends FMS_BaseClass {
 //	    Thread.sleep(4000);
 //	    RGRGBPage.getUploadBtn().click();
 //	    Thread.sleep(6000);
+
+//      RGUPage.getReedemGoldBtn().click();
+//      Thread.sleep(2000);
+//      Redeem_RedeemGold_RedeemGoldButtonPage RGRGBPage = new Redeem_RedeemGold_RedeemGoldButtonPage(driver);
+//      RGRGBPage.getCloseBtn().click();
+//      Thread.sleep(2000);
+
+//      Redeem_ReddemGoldusers_FilterPage RGUFPage = new Redeem_ReddemGoldusers_FilterPage(driver);
+//      Thread.sleep(3000);     
+//      RGUFPage.getFromDateEdt().sendKeys(FromDate);
+//      Thread.sleep(3000);
+//      RGUFPage.getEndDateEdt().sendKeys(EndDate);
+//      Thread.sleep(5000);
+//      RGUFPage.getMobileNumberEdt().sendKeys(MobileNumber);
+//      Thread.sleep(5000);
+//      RGUFPage.getTransactionIdEdt().sendKeys(TransactionId);
+//      Thread.sleep(3000);
+//      RGUFPage.getTxnTypeDrpdwn().click();
+//      Thread.sleep(4000);	    
+//      RGUFPage.getSearchEdt().click();
+//      Thread.sleep(3000);
+//      RGUFPage.getRefreshBtn().click();
+//      Thread.sleep(3000);
+
+//      RGUPage.getShowAllCheckBox().click();
+//      Thread.sleep(4000);
